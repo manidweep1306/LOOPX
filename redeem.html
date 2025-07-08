@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoopX - Redeem Rewards</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">LoopX</a>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                    <li><a href="earn.html">Earn</a></li>
+                    <li><a href="redeem.html">Redeem</a></li>
+                    <li><a href="app.html">App</a></li>
+                    <li><a href="impact.html">Impact</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Your Eco-Store Rewards</h1>
+                <p>Browse and redeem your LoopX credits for sustainable products and experiences.</p>
+                <div class="user-credits">
+                    Your Current Credits: <span id="currentCredits">5200</span> LoopX Coins
+                </div>
+            </div>
+        </section>
+
+        <section class="eco-store-grid-section">
+            <div class="container">
+                <div class="store-controls">
+                    <div class="filters">
+                        <label for="categoryFilter">Category:</label>
+                        <select id="categoryFilter">
+                            <option value="all">All</option>
+                            <option value="home">Home & Living</option>
+                            <option value="personal">Personal Care</option>
+                            <option value="vouchers">Vouchers & Experiences</option>
+                            <option value="electronics">Eco-Electronics</option>
+                            <option value="clothing">Sustainable Clothing</option>
+                        </select>
+                        <label for="priceFilter">Sort By Price:</label>
+                        <select id="priceFilter">
+                            <option value="default">Default</option>
+                            <option value="low-to-high">Low to High</option>
+                            <option value="high-to-low">High to Low</option>
+                        </select>
+                    </div>
+                    <div class="search-products">
+                        <input type="text" id="productSearch" placeholder="Search products...">
+                        <button class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+
+                <div class="product-grid">
+                    <div class="product-card" data-category="home" data-price="2500">
+                        <img src="https://via.placeholder.com/300x200?text=Bamboo+Cutlery+Set" alt="Bamboo Cutlery Set">
+                        <h3>Bamboo Cutlery Set</h3>
+                        <p class="description">Sustainable and reusable cutlery for on-the-go meals.</p>
+                        <div class="product-meta">
+                            <span class="credits">2500 Credits</span>
+                            <button class="btn btn-small">Redeem</button>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="personal" data-price="1800">
+                        <img src="https://via.placeholder.com/300x200?text=Eco-Friendly+Toothbrush" alt="Eco-Friendly Toothbrush">
+                        <h3>Eco-Friendly Toothbrush Pack</h3>
+                        <p class="description">Biodegradable toothbrushes for a healthier planet.</p>
+                        <div class="product-meta">
+                            <span class="credits">1800 Credits</span>
+                            <button class="btn btn-small">Redeem</button>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="vouchers" data-price="5000">
+                        <img src="https://via.placeholder.com/300x200?text=Local+Organic+Voucher" alt="Local Organic Store Voucher">
+                        <h3>₹500 Local Organic Store Voucher</h3>
+                        <p class="description">Support local businesses and get fresh organic produce.</p>
+                        <div class="product-meta">
+                            <span class="credits">5000 Credits</span>
+                            <button class="btn btn-small">Redeem</button>
+                        </div>
+                    </div>
+                     <div class="product-card" data-category="home" data-price="3500">
+                        <img src="https://via.placeholder.com/300x200?text=Seed+Paper+Notebook" alt="Seed Paper Notebook">
+                        <h3>Seed Paper Notebook</h3>
+                        <p class="description">Write your thoughts, then plant the paper to grow flowers!</p>
+                        <div class="product-meta">
+                            <span class="credits">3500 Credits</span>
+                            <button class="btn btn-small">Redeem</button>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="clothing" data-price="7000">
+                        <img src="https://via.placeholder.com/300x200?text=Recycled+T-Shirt" alt="Recycled T-Shirt">
+                        <h3>Recycled Cotton T-Shirt</h3>
+                        <p class="description">Fashion that's good for the planet.</p>
+                        <div class="product-meta">
+                            <span class="credits">7000 Credits</span>
+                            <button class="btn btn-small">Redeem</button>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="electronics" data-price="12000">
+                        <img src="https://via.placeholder.com/300x200?text=Solar+Charger" alt="Solar Charger">
+                        <h3>Portable Solar Charger</h3>
+                        <p class="description">Charge your devices with the power of the sun.</p>
+                        <div class="product-meta">
+                            <span class="credits">12000 Credits</span>
+                            <button class="btn btn-small">Redeem</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>LoopX</h3>
+                    <p>Recycle for a greener tomorrow.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="impact.html">Our Impact</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-app-download">
+                    <h4>Download Our App</h4>
+                    <div class="app-badges">
+                        <a href="#" target="_blank"><img src="https://via.placeholder.com/120x40?text=Play+Store" alt="Google Play Store"></a>
+                        <a href="#" target="_blank"><img src="https://via.placeholder.com/120x40?text=App+Store" alt="Apple App Store"></a>
+                    </div>
+                </div>
+                <div class="footer-legal">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LoopX. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

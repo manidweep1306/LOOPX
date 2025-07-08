@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoopX - My Earnings</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">LoopX</a>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                    <li><a href="earn.html" class="active">Earn</a></li>
+                    <li><a href="redeem.html">Redeem</a></li>
+                    <li><a href="app.html">App</a></li>
+                    <li><a href="impact.html">Impact</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Your LoopX Earnings Dashboard</h1>
+                <p>Track your environmental impact and see your accumulated rewards.</p>
+            </div>
+        </section>
+
+        <section class="earnings-dashboard-section">
+            <div class="container">
+                <div class="dashboard-summary">
+                    <div class="summary-card">
+                        <i class="fas fa-coins"></i>
+                        <h3>Total LoopX Credits</h3>
+                        <p class="big-number" id="totalCredits">5200</p>
+                    </div>
+                    <div class="summary-card">
+                        <i class="fas fa-recycle"></i>
+                        <h3>Recycling Sessions</h3>
+                        <p class="big-number" id="totalSessions">12</p>
+                    </div>
+                    <div class="summary-card">
+                        <i class="fas fa-weight-hanging"></i>
+                        <h3>Total Weight Recycled (kg)</h3>
+                        <p class="big-number" id="totalWeight">75</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-details">
+                    <h2>Recent Earnings History</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Material</th>
+                                <th>Weight (kg)</th>
+                                <th>Credits Earned</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2025-07-01</td>
+                                <td>Plastics</td>
+                                <td>8.5</td>
+                                <td>850</td>
+                                <td class="status-completed">Completed</td>
+                            </tr>
+                            <tr>
+                                <td>2025-06-25</td>
+                                <td>Paper</td>
+                                <td>15.0</td>
+                                <td>1000</td>
+                                <td class="status-completed">Completed</td>
+                            </tr>
+                            <tr>
+                                <td>2025-06-18</td>
+                                <td>Metals</td>
+                                <td>5.2</td>
+                                <td>700</td>
+                                <td class="status-completed">Completed</td>
+                            </tr>
+                            <tr>
+                                <td>2025-06-10</td>
+                                <td>E-Waste</td>
+                                <td>2.0</td>
+                                <td>1500</td>
+                                <td class="status-completed">Completed</td>
+                            </tr>
+                            <tr>
+                                <td>2025-07-08</td>
+                                <td>Plastics</td>
+                                <td>6.0</td>
+                                <td>Pending</td>
+                                <td class="status-pending">Pending</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="dashboard-actions">
+                    <a href="redeem.html" class="btn btn-primary"><i class="fas fa-gift"></i> Redeem Your Credits</a>
+                    <a href="sell.html" class="btn btn-secondary"><i class="fas fa-truck-pickup"></i> Schedule New Pickup</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>LoopX</h3>
+                    <p>Recycle for a greener tomorrow.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="impact.html">Our Impact</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-app-download">
+                    <h4>Download Our App</h4>
+                    <div class="app-badges">
+                        <a href="#" target="_blank"><img src="https://via.placeholder.com/120x40?text=Play+Store" alt="Google Play Store"></a>
+                        <a href="#" target="_blank"><img src="https://via.placeholder.com/120x40?text=App+Store" alt="Apple App Store"></a>
+                    </div>
+                </div>
+                <div class="footer-legal">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LoopX. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
