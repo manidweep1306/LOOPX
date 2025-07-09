@@ -54,9 +54,6 @@ body {
 
 /* Remove old logo text styles if they conflict */
 .logo a {
-    /* font-size: 1.8rem; */ /* No longer needed for image */
-    /* font-weight: 700; */ /* No longer needed for image */
-    /* color: var(--primary-color); */ /* No longer needed for image */
     text-decoration: none; /* Keep this for the link behavior */
 }
 
@@ -73,19 +70,37 @@ body {
     margin-left: 1.5rem;
 }
 
-.main-nav .nav-links a {
+/* Styles for all standard navigation links (Home, Sell, Earn, Redeem, App, Impact, Contact Us, About) */
+.main-nav .nav-links a:not(.btn-nav) { /* Exclude the .btn-nav class (Login/Sign Up) */
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--text-color); /* Default text color */
     font-weight: 500;
-    transition: color 0.3s ease;
     padding: 0.5rem 0; /* Add padding for better click area */
+    position: relative; /* For underline effect */
+    transition: color 0.3s ease;
 }
 
-.main-nav .nav-links a:hover {
-    color: var(--primary-color);
+.main-nav .nav-links a:not(.btn-nav):hover {
+    color: var(--primary-color); /* Change color on hover */
 }
 
-/* Navigation buttons (Login/Sign Up) */
+.main-nav .nav-links a:not(.btn-nav)::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px; /* Position below text */
+    left: 0;
+    background-color: var(--primary-color); /* Underline color */
+    transition: width 0.3s ease;
+}
+
+.main-nav .nav-links a:not(.btn-nav):hover::after {
+    width: 100%; /* Expand underline on hover */
+}
+
+
+/* Navigation buttons (Login/Sign Up) - these styles remain as they are distinct */
 .main-nav .nav-links .btn-nav {
     display: inline-block;
     padding: 0.5rem 1rem;
