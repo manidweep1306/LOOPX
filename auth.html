@@ -133,7 +133,26 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getFirestore, doc, setDoc, getDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Make Firebase modules available globally for auth.js
+        window.firebase = {
+            auth: {
+                getAuth,
+                signInAnonymously,
+                signInWithCustomToken,
+                createUserWithEmailAndPassword,
+                signInWithEmailAndPassword,
+                onAuthStateChanged
+            },
+            firestore: {
+                getFirestore,
+                doc,
+                setDoc,
+                getDoc,
+                serverTimestamp
+            }
+        };
 
         // Global variables for Firebase instances
         window.firebaseApp = null;
@@ -145,31 +164,39 @@
         document.addEventListener('DOMContentLoaded', async () => {
             // Initialize Firebase only once
             if (!window.firebaseApp) {
-                const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+                let firebaseConfig = {};
+                try {
+                    // Attempt to parse __firebase_config, handle if it's not a valid JSON string
+                    firebaseConfig = typeof __firebase_config !== 'undefined' && __firebase_config ? JSON.parse(__firebase_config) : {};
+                } catch (e) {
+                    console.error('Error parsing __firebase_config:', e);
+                    firebaseConfig = {}; // Ensure it's an empty object if parsing fails
+                }
+
                 window.appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
 
-                if (Object.keys(firebaseConfig).length > 0) {
+                if (Object.keys(firebaseConfig).length > 0 && firebaseConfig.apiKey) { // Check for apiKey to confirm valid config
                     window.firebaseApp = initializeApp(firebaseConfig);
-                    window.auth = getAuth(window.firebaseApp);
-                    window.db = getFirestore(window.firebaseApp);
+                    window.auth = firebase.auth.getAuth(window.firebaseApp);
+                    window.db = firebase.firestore.getFirestore(window.firebaseApp);
 
                     // Sign in with custom token if available, otherwise anonymously
                     if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
                         try {
-                            await signInWithCustomToken(window.auth, __initial_auth_token);
+                            await firebase.auth.signInWithCustomToken(window.auth, __initial_auth_token);
                             console.log('Signed in with custom token');
                         } catch (error) {
                             console.error('Error signing in with custom token:', error);
-                            await signInAnonymously(window.auth);
+                            await firebase.auth.signInAnonymously(window.auth);
                             console.log('Signed in anonymously due to custom token error');
                         }
                     } else {
-                        await signInAnonymously(window.auth);
+                        await firebase.auth.signInAnonymously(window.auth);
                         console.log('Signed in anonymously');
                     }
 
                     // Listen for auth state changes
-                    onAuthStateChanged(window.auth, (user) => {
+                    firebase.auth.onAuthStateChanged(window.auth, (user) => {
                         if (user) {
                             window.currentUserId = user.uid;
                             console.log('User is signed in:', user.uid);
@@ -181,17 +208,20 @@
                         }
                     });
                 } else {
-                    console.error('Firebase config is not available. Firebase will not be initialized.');
+                    console.error('Firebase config is not available or invalid. Firebase will not be initialized.');
                     document.getElementById('auth-message').textContent = 'Firebase is not configured. Authentication features will not work.';
-                    document.getElementById('auth-message').style.backgroundColor = '#f8d7da';
-                    document.getElementById('auth-message').style.color = '#721c24';
+                    document.getElementById('auth-message').classList.add('error'); // Use error class for red background
                     document.getElementById('auth-message').style.display = 'block';
+                    window.firebaseApp = null; // Ensure firebaseApp is null if config is bad
                 }
             }
-            // Now that Firebase is initialized, load auth.js which depends on it
-            const script = document.createElement('script');
-            script.src = 'js/auth.js';
-            document.body.appendChild(script);
+            // Now that Firebase is initialized (or attempted), load auth.js which depends on it
+            // Only load auth.js if it hasn't been loaded already by a previous DOMContentLoaded event
+            if (!document.querySelector('script[src="js/auth.js"]')) {
+                const script = document.createElement('script');
+                script.src = 'js/auth.js';
+                document.body.appendChild(script);
+            }
         });
     </script>
     <script src="js/script.js"></script> <!-- Reusing main script for hamburger menu -->
