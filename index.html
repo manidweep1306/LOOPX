@@ -1,177 +1,341 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LoopX - Recycle, Earn, Redeem</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LoopX - Recycle, Earn, Redeem</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
+
 <body>
-    <header class="main-header">
-        <div class="container">
-            <div class="logo">
-                <!-- Replaced "LoopX" text with an image tag -->
-                <a href="index.html">
-                    <img src="Pics/ChatGPT Image Jul 9, 2025, 02_49_13 PM.png" alt="LoopX Logo" class="header-logo">
-                </a>
-            </div>
-            <nav class="main-nav">
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="sell.html">Sell</a></li>
-                    <li><a href="earn.html">Earn</a></li>
-                    <li><a href="redeem.html">Redeem</a></li>
-                    <li><a href="app.html">App</a></li>
-                    <li><a href="impact.html">Impact</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <!-- Login and Sign Up links -->
-                    <li><a href="auth.html?form=login" class="btn btn-nav">Login</a></li>
-                    <li><a href="auth.html?form=signup" class="btn btn-nav">Sign Up</a></li>
-                </ul>
-                <div class="hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-        </div>
-    </header>
 
-    <main>
-        <section class="hero-section">
-            <div class="container">
-                <h1>Transform Waste into Rewards with LoopX</h1>
-                <p>Your ultimate platform for sustainable recycling and valuable returns.</p>
-                <div class="hero-ctas">
-                    <a href="sell.html" class="btn btn-primary">Sell Recyclables</a>
-                    <a href="redeem.html" class="btn btn-secondary">Explore Eco-store</a>
-                </div>
-            </div>
-        </section>
+    <header class="main-header">
 
-        <section class="how-it-works">
-            <div class="container">
-                <h2>How It Works</h2>
-                <div class="flow-steps">
-                    <div class="step">
-                        <i class="fas fa-box-open"></i>
-                        <h3>1. Collect</h3>
-                        <p>Gather your recyclables like plastic, paper, and metal.</p>
-                    </div>
-                    <div class="step">
-                        <i class="fas fa-truck-pickup"></i>
-                        <h3>2. Return</h3>
-                        <p>Schedule a convenient pickup or find a nearby drop-off point.</p>
-                    </div>
-                    <div class="step">
-                        <i class="fas fa-coins"></i>
-                        <h3>3. Earn</h3>
-                        <p>Receive LoopX credits for your efforts and redeem exciting rewards.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="container">
 
-        <section class="eco-store-preview">
-            <div class="container">
-                <h2>Rewards Await!</h2>
-                <p>Redeem your LoopX credits for amazing eco-friendly products and more.</p>
-                <div class="product-grid-preview">
-                    <div class="product-item">
-                        <img src="https://placehold.co/300x200/4CAF50/ffffff?text=Reusable+Bottle" alt="Eco Product 1">
-                        <h4>Reusable Water Bottle</h4>
-                        <p>1500 Credits</p>
-                    </div>
-                    <div class="product-item">
-                        <img src="https://placehold.co/300x200/4CAF50/ffffff?text=Organic+Tote" alt="Eco Product 2">
-                        <h4>Organic Cotton Tote</h4>
-                        <p>1200 Credits</p>
-                    </div>
-                    <div class="product-item">
-                        <img src="https://placehold.co/300x200/4CAF50/ffffff?text=Bamboo+Utensils" alt="Eco Product 3">
-                        <h4>Bamboo Utensil Set</h4>
-                        <p>1000 Credits</p>
-                    </div>
-                </div>
-                <a href="redeem.html" class="btn btn-secondary mt-4">Explore Rewards</a>
-            </div>
-        </section>
+            <div class="logo">
 
-        <section class="testimonials-section">
-            <div class="container">
-                <h2>What Our Users Say</h2>
-                <div class="testimonial-carousel">
-                    <div class="testimonial-item active">
-                        <p>"LoopX has made recycling so easy and rewarding! Love earning points for things I already do."</p>
-                        <h4>- Priya S.</h4>
-                    </div>
-                    <div class="testimonial-item">
-                        <p>"The Eco-store has great products. It's motivating to see my recycling efforts turn into tangible rewards."</p>
-                        <h4>- Rahul K.</h4>
-                    </div>
-                    <div class="testimonial-item">
-                        <p>"An excellent initiative! LoopX is truly making a positive impact on our environment."</p>
-                        <h4>- Sneha V.</h4>
-                    </div>
-                </div>
-                <div class="carousel-dots">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                </div>
-            </div>
-        </section>
+                <a href="index.html">LoopX</a>
 
-        <section class="search-return-points">
-            <div class="container">
-                <h2>Find a Return Point Near You</h2>
-                <div class="search-box">
-                    <input type="text" placeholder="Enter your location or Pincode...">
-                    <button class="btn btn-primary">Search Return Points</button>
-                </div>
-            </div>
-        </section>
+            </div>
 
-    </main>
+            <nav class="main-nav">
 
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h3>LoopX</h3>
-                    <p>Recycle for a greener tomorrow.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="impact.html">Our Impact</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-app-download">
-                    <h4>Download Our App</h4>
-                    <div class="app-badges">
-                        <a href="#" target="_blank"><img src="https://via.placeholder.com/120x40?text=Play+Store" alt="Google Play Store"></a>
-                        <a href="#" target="_blank"><img src="https://via.placeholder.co/120x40?text=App+Store" alt="Apple App Store"></a>
-                    </div>
-                </div>
-                <div class="footer-legal">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms of Service</a></li>
-                        <li><a href="sitemap.html">Sitemap</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 LoopX. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+                <ul class="nav-links">
 
-    <script src="js/script.js"></script>
+                    <li><a href="index.html">Home</a></li>
+
+                    <li><a href="sell.html">Sell</a></li>
+
+                    <li><a href="earn.html">Earn</a></li>
+
+                    <li><a href="redeem.html">Redeem</a></li>
+
+                    <li><a href="app.html">App</a></li>
+
+                    <li><a href="impact.html">Impact</a></li>
+
+                    <li><a href="contact.html">Contact Us</a></li>
+
+                    <li><a href="about.html">About</a></li>
+
+                </ul>
+
+                <div class="hamburger">
+
+                    <i class="fas fa-bars"></i>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+        <section class="hero-section">
+
+            <div class="container">
+
+                <h1>Transform Waste into Rewards with LoopX</h1>
+
+                <p>Your ultimate platform for sustainable recycling and valuable returns.</p>
+
+                <div class="hero-ctas">
+
+                    <a href="sell.html" class="btn btn-primary">Sell Recyclables</a>
+
+                    <a href="redeem.html" class="btn btn-secondary">Explore Eco-store</a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="how-it-works">
+
+            <div class="container">
+
+                <h2>How It Works</h2>
+
+                <div class="flow-steps">
+
+                    <div class="step">
+
+                        <i class="fas fa-box-open"></i>
+
+                        <h3>1. Collect</h3>
+
+                        <p>Gather your recyclables like plastic, paper, and metal.</p>
+
+                    </div>
+
+                    <div class="step">
+
+                        <i class="fas fa-truck-pickup"></i>
+
+                        <h3>2. Return</h3>
+
+                        <p>Schedule a convenient pickup or find a nearby drop-off point.</p>
+
+                    </div>
+
+                    <div class="step">
+
+                        <i class="fas fa-coins"></i>
+
+                        <h3>3. Earn</h3>
+
+                        <p>Receive LoopX credits for your efforts and redeem exciting rewards.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="eco-store-preview">
+
+            <div class="container">
+
+                <h2>Rewards Await!</h2>
+
+                <p>Redeem your LoopX credits for amazing eco-friendly products and more.</p>
+
+                <div class="product-grid-preview">
+
+                    <div class="product-item">
+
+                        <img src="Pics/reusable-water bottle.jpg" alt="Eco Product 1">
+
+                        <h4>Reusable Water Bottle</h4>
+
+                        <p>1500 Credits</p>
+
+                    </div>
+
+                    <div class="product-item">
+
+                        <img src="Pics/organic-cotton-tote.jpg" alt="Eco Product 2">
+
+                        <h4>Organic Cotton Tote</h4>
+
+                        <p>1200 Credits</p>
+
+                    </div>
+
+                    <div class="product-item">
+
+                        <img src="Pics/bamboo cooking utensils.jpg" alt="Eco Product 3">
+
+                        <h4>Bamboo Utensil Set</h4>
+
+                        <p>1000 Credits</p>
+
+                    </div>
+
+                </div>
+
+                <a href="redeem.html" class="btn btn-secondary mt-4">Explore Rewards</a>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="testimonials-section">
+
+            <div class="container">
+
+                <h2>What Our Users Say</h2>
+
+                <div class="testimonial-carousel">
+
+                    <div class="testimonial-item active">
+
+                        <p>"LoopX has made recycling so easy and rewarding! Love earning points for things I already do."</p>
+
+                        <h4>- Priya S.</h4>
+
+                    </div>
+
+                    <div class="testimonial-item">
+
+                        <p>"The Eco-store has great products. It's motivating to see my recycling efforts turn into tangible rewards."</p>
+
+                        <h4>- Rahul K.</h4>
+
+                    </div>
+
+                    <div class="testimonial-item">
+
+                        <p>"An excellent initiative! LoopX is truly making a positive impact on our environment."</p>
+
+                        <h4>- Sneha V.</h4>
+
+                    </div>
+
+                </div>
+
+                <div class="carousel-dots">
+
+                    <span class="dot active"></span>
+
+                    <span class="dot"></span>
+
+                    <span class="dot"></span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="search-return-points">
+
+            <div class="container">
+
+                <h2>Find a Return Point Near You</h2>
+
+                <div class="search-box">
+
+                    <input type="text" placeholder="Enter your location or Pincode...">
+
+                    <button class="btn btn-primary">Search Return Points</button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+    </main>
+
+
+
+    <footer class="main-footer">
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div class="footer-logo">
+
+                    <h3>LoopX</h3>
+
+                    <p>Recycle for a greener tomorrow.</p>
+
+                </div>
+
+                <div class="footer-links">
+
+                    <h4>Quick Links</h4>
+
+                    <ul>
+
+                        <li><a href="about.html">About Us</a></li>
+
+                        <li><a href="impact.html">Our Impact</a></li>
+
+                        <li><a href="contact.html">Contact Us</a></li>
+
+                        <li><a href="faq.html">FAQ</a></li>
+
+                    </ul>
+
+                </div>
+
+                <div class="footer-app-download">
+
+                    <h4>Download Our App</h4>
+
+                    <div class="app-badges">
+
+                        <a href="#" target="_blank"><img src="https://via.placeholder.com/120x40?text=Play+Store" alt="Google Play Store"></a>
+
+                        <a href="#" target="_blank"><img src="https://via.placeholder.com/120x40?text=App+Store" alt="Apple App Store"></a>
+
+                    </div>
+
+                </div>
+
+                <div class="footer-legal">
+
+                    <h4>Legal</h4>
+
+                    <ul>
+
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+
+                        <li><a href="terms.html">Terms of Service</a></li>
+
+                        <li><a href="sitemap.html">Sitemap</a></li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>&copy; 2025 LoopX. All rights reserved.</p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="js/script.js"></script>
+
 </body>
+
 </html>
