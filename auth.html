@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoopX - Login / Sign Up</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- Reusing main styles for header/footer -->
+    <link rel="stylesheet" href="css/auth.css"> <!-- Specific styles for auth forms -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">LoopX</a>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                    <li><a href="earn.html">Earn</a></li>
+                    <li><a href="redeem.html">Redeem</a></li>
+                    <li><a href="app.html">App</a></li>
+                    <li><a href="impact.html">Impact</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <!-- Active links for Login/Sign Up on this page -->
+                    <li><a href="auth.html?form=login" class="btn btn-nav active-auth-link" id="nav-login-link">Login</a></li>
+                    <li><a href="auth.html?form=signup" class="btn btn-nav" id="nav-signup-link">Sign Up</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="auth-main">
+        <section class="auth-section">
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" id="login-tab">Login</button>
+                    <button class="auth-tab" id="signup-tab">Sign Up</button>
+                </div>
+
+                <!-- Message Display Area -->
+                <div id="auth-message" class="auth-message"></div>
+
+                <!-- Login Form -->
+                <div class="auth-form-wrapper" id="login-form-wrapper">
+                    <form class="auth-form" id="login-form">
+                        <h2>Login to Your Account</h2>
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <input type="email" id="login-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <p class="form-switch-text">Don't have an account? <a href="#" id="switch-to-signup">Sign Up</a></p>
+                    </form>
+                </div>
+
+                <!-- Sign Up Form -->
+                <div class="auth-form-wrapper hidden" id="signup-form-wrapper">
+                    <form class="auth-form" id="signup-form">
+                        <h2>Create Your LoopX Account</h2>
+                        <div class="form-group">
+                            <label for="signup-username">Username</label>
+                            <input type="text" id="signup-username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-email">Email</label>
+                            <input type="email" id="signup-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-password">Password</label>
+                            <input type="password" id="signup-password" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-confirm-password">Confirm Password</label>
+                            <input type="password" id="signup-confirm-password" name="confirm-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                        <p class="form-switch-text">Already have an account? <a href="#" id="switch-to-login">Login</a></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>LoopX</h3>
+                    <p>Recycle for a greener tomorrow.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="impact.html">Our Impact</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-app-download">
+                    <h4>Download Our App</h4>
+                    <div class="app-badges">
+                        <a href="#" target="_blank"><img src="https://via.placeholder.com/120x40?text=Play+Store" alt="Google Play Store"></a>
+                        <a href="#" target="_blank"><img src="https://via.placeholder.co/120x40?text=App+Store" alt="Apple App Store"></a>
+                    </div>
+                </div>
+                <div class="footer-legal">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LoopX. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Global variables for Firebase instances
+        window.firebaseApp = null;
+        window.db = null;
+        window.auth = null;
+        window.currentUserId = null;
+        window.appId = null; // Declare appId globally
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Initialize Firebase only once
+            if (!window.firebaseApp) {
+                const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+                window.appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+                if (Object.keys(firebaseConfig).length > 0) {
+                    window.firebaseApp = initializeApp(firebaseConfig);
+                    window.auth = getAuth(window.firebaseApp);
+                    window.db = getFirestore(window.firebaseApp);
+
+                    // Sign in with custom token if available, otherwise anonymously
+                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                        try {
+                            await signInWithCustomToken(window.auth, __initial_auth_token);
+                            console.log('Signed in with custom token');
+                        } catch (error) {
+                            console.error('Error signing in with custom token:', error);
+                            await signInAnonymously(window.auth);
+                            console.log('Signed in anonymously due to custom token error');
+                        }
+                    } else {
+                        await signInAnonymously(window.auth);
+                        console.log('Signed in anonymously');
+                    }
+
+                    // Listen for auth state changes
+                    onAuthStateChanged(window.auth, (user) => {
+                        if (user) {
+                            window.currentUserId = user.uid;
+                            console.log('User is signed in:', user.uid);
+                            // You can update UI elements here to show logged-in state
+                        } else {
+                            window.currentUserId = null;
+                            console.log('User is signed out');
+                            // You can update UI elements here to show logged-out state
+                        }
+                    });
+                } else {
+                    console.error('Firebase config is not available. Firebase will not be initialized.');
+                    document.getElementById('auth-message').textContent = 'Firebase is not configured. Authentication features will not work.';
+                    document.getElementById('auth-message').style.backgroundColor = '#f8d7da';
+                    document.getElementById('auth-message').style.color = '#721c24';
+                    document.getElementById('auth-message').style.display = 'block';
+                }
+            }
+            // Now that Firebase is initialized, load auth.js which depends on it
+            const script = document.createElement('script');
+            script.src = 'js/auth.js';
+            document.body.appendChild(script);
+        });
+    </script>
+    <script src="js/script.js"></script> <!-- Reusing main script for hamburger menu -->
+</body>
+</html>
