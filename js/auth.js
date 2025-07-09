@@ -123,65 +123,61 @@ if (logoutButton) {
 
 // --- Auth State Listener (for protecting routes/showing user info) ---
 auth.onAuthStateChanged(user => {
-    // This function runs whenever the user's sign-in state changes.
-    // You can use this to update UI (e.g., show "Welcome, [User Name]" or "Login/Signup" links)
-    // or to redirect users if they try to access protected pages without logging in.
+    
+    // js/auth.js
 
-    // Example for updating header:
-    const navLinks = document.querySelector('.nav-links');
-    const authLinks = `
-        <li id="navLogin"><a href="login.html">Login</a></li>
-        <li id="navSignup"><a href="signup.html">Sign Up</a></li>
-    `;
-    const userLinks = `
-        <li><a href="earn.html">My Dashboard</a></li>
-        <li id="navLogout"><a href="#">Logout</a></li>
-    `;
+// ... (your firebaseConfig, initializeApp, auth, db, displayMessage functions remain at the top) ...
 
-    // Remove existing login/signup/user links before adding new ones
-    if (document.getElementById('navLogin')) document.getElementById('navLogin').remove();
-    if (document.getElementById('navSignup')) document.getElementById('navSignup').remove();
-    if (document.getElementById('navLogout')) document.getElementById('navLogout').remove(); // If exists
+// --- Auth State Listener (for protecting routes/showing user info) ---
+auth.onAuthStateChanged(user => {
+    const navLinks = document.querySelector('.nav-links'); // Get your main navigation list
 
-    if (user) {
-        // User is signed in.
-        console.log("User logged in:", user.email);
-        if (navLinks) {
-             // You might want to remove existing Sell, Earn, Redeem, App links and add user-specific links.
-             // For simplicity, let's just add logout. You can refine this based on your UX.
-            const logoutListItem = document.createElement('li');
-            logoutListItem.innerHTML = `<a href="#" id="logoutButton">Logout</a>`;
-            navLinks.appendChild(logoutListItem);
+    // IMPORTANT: Clear existing navigation links to prevent duplication
+    // This makes sure we start with an empty list before adding new items
+    if (navLinks) {
+        navLinks.innerHTML = ''; // Clear all existing list items inside .nav-links
+    } else {
+        console.warn("Element with class 'nav-links' not found in the DOM.");
+        // If this warning appears in your console, double-check your HTML header structure.
+        return; // Exit if navLinks isn't found, as we can't modify it.
+    }
 
-            // Add event listener for logout
+    // --- Add static navigation links that are always present ---
+    // These links will appear regardless of whether a user is logged in or out.
+    if (navLinks) { // Re-check if navLinks exists (good practice after previous check)
+        navLinks.innerHTML += `<li><a href="index.html">Home</a></li>`;
+        navLinks.innerHTML += `<li><a href="earn.html">Earn</a></li>`;
+        navLinks.innerHTML += `<li><a href="redeem.html">Redeem</a></li>`;
+        navLinks.innerHTML += `<li><a href="sell.html">Sell</a></li>`;
+        navLinks.innerHTML += `<li><a href="about.html">About</a></li>`;
+        navLinks.innerHTML += `<li><a href="contact.html">Contact</a></li>`;
+
+        // --- Add dynamic login/signup/logout links based on auth state ---
+        if (user) {
+            // User is signed in. Add a Logout button.
+            console.log("User logged in:", user.email);
+
+            navLinks.innerHTML += `<li><a href="#" id="logoutButton">Logout</a></li>`;
+
+            // Add event listener for the dynamically created logout button
             const logoutButton = document.getElementById('logoutButton');
             if (logoutButton) {
                 logoutButton.addEventListener('click', async (e) => {
-                    e.preventDefault();
+                    e.preventDefault(); // Prevent link default behavior
                     try {
-                        await auth.signOut();
-                        // alert('Logged out successfully!'); // Consider removing this for smoother UX
-                        window.location.href = 'index.html'; // Redirect to home
+                        await auth.signOut(); // Firebase Authentication: Sign out the current user
+                        window.location.href = 'index.html'; // Redirect to home page after successful logout
                     } catch (error) {
                         console.error("Logout error:", error);
-                        // alert('Error logging out: ' + error.message);
                     }
                 });
             }
-        }
-    } else {
-        // User is signed out.
-        console.log("User logged out.");
-        if (navLinks) {
-            const loginListItem = document.createElement('li');
-            loginListItem.id = 'navLogin';
-            loginListItem.innerHTML = `<a href="login.html">Login</a>`;
-            navLinks.appendChild(loginListItem);
-
-            const signupListItem = document.createElement('li');
-            signupListItem.id = 'navSignup';
-            signupListItem.innerHTML = `<a href="signup.html">Sign Up</a>`;
-            navLinks.appendChild(signupListItem);
+        } else {
+            // User is signed out. Add Login and Sign Up buttons.
+            console.log("User logged out.");
+            navLinks.innerHTML += `<li><a href="login.html">Login</a></li>`;
+            navLinks.innerHTML += `<li><a href="signup.html">Sign Up</a></li>`;
         }
     }
 });
+
