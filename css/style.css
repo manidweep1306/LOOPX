@@ -50,18 +50,14 @@ body {
 /* ======================== */
 /* Header Styles */
 /* ======================== */
+/* Header */
 .main-header {
-    background-color: var(--color-white);
-    /* padding: var(--spacing-medium) 0; REMOVE PADDING TO CONTROL HEIGHT WITH MIN-HEIGHT */
-    box-shadow: var(--shadow-small);
-    border-bottom: 1px solid var(--color-border);
-    position: sticky; /* CHANGED: Make header sticky instead of fixed */
-    top: 0; /* Stick to the top */
-    width: 100%;
-    z-index: 1000; /* Ensure it stays on top of other content */
-    min-height: 80px; /* ADDED: Define a minimum height for the header */
-    display: flex;
-    align-items: center; /* Vertically center items in the header */
+    background-color: var(--white-color);
+    padding: 20px 0;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    /* REMOVED: position: sticky; */ /* This makes it scroll out of view */
+    /* REMOVED: top: 0; */
+    z-index: 1000;
 }
 
 .main-header .container {
@@ -112,17 +108,17 @@ body {
 /* Hero Section Styles */
 /* ======================== */
 /* For the Home Page specific hero */
+/* Hero Section (HOMEPAGE SPECIFIC) */
 .hero-section {
-    background-color: var(--color-primary); /* CHANGED: Green color */
-    color: var(--color-white);
-    padding: 80px 0; /* Adjusted padding */
+    /* CHANGED: Set background to primary color, removed image */
+    background: var(--primary-color); /* Now a solid green */
+    color: var(--white-color);
+    padding: 100px 20px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 450px; /* Ensure a good height */
-    position: relative;
-    overflow: hidden; /* For potential background elements */
+    min-height: 60vh;
 }
 
 .hero-section .container {
