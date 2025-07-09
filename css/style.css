@@ -832,5 +832,107 @@ section {
     }
     .footer-logo h3 {
         font-size: 1.5rem;
-    }
+        
+3}
+    /* --- Auth Section Styles (Login/Signup) --- */
+.auth-section {
+    padding: 60px 0;
+    background-color: var(--color-light-grey);
+}
+
+.auth-form-container {
+    background: var(--color-white);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-medium);
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.auth-form-container h2 {
+    color: var(--color-primary);
+    margin-bottom: 30px;
+    font-size: 2.2em;
+}
+
+.auth-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--color-dark-grey);
+}
+
+.auth-form input[type="email"],
+.auth-form input[type="password"],
+.auth-form input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Ensures padding doesn't increase width */
+}
+
+.auth-form input[type="email"]:focus,
+.auth-form input[type="password"]:focus,
+.auth-form input[type="text"]:focus {
+    border-color: var(--color-accent);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(88, 178, 97, 0.2); /* Soft green glow */
+}
+
+.auth-form .btn-primary {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    margin-top: 20px;
+}
+
+.auth-switch {
+    margin-top: 25px;
+    font-size: 0.95em;
+    color: var(--color-dark-grey);
+}
+
+.auth-switch a {
+    color: var(--color-secondary);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+/* Message Box for Firebase Feedback */
+.message-box {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.message-box.show {
+    opacity: 1;
+}
+
+.message-box.success {
+    background-color: #d4edda; /* Light green */
+    color: #155724; /* Dark green */
+    border: 1px solid #c3e6cb;
+}
+
+.message-box.error {
+    background-color: #f8d7da; /* Light red */
+    color: #721c24; /* Dark red */
+    border: 1px solid #f5c6cb;
 }
